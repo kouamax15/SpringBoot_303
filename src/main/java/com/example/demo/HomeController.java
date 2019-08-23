@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
     @Autowired
     CourseRepository courseRepository;
 
@@ -43,7 +44,7 @@ public class HomeController {
         model.addAttribute("course", courseRepository.findById(id).get());
         return "show";
     }
-    @RequestMapping("/update{id}")
+    @RequestMapping("/update/{id}")
     public String updateCourse(@PathVariable("id") long id,
                                Model model){
         model.addAttribute("course", courseRepository.findById (id).get());
